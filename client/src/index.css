@@ -36,6 +36,17 @@ body {
   justify-content: space-between;
 }
 
+.saved-list a{
+  text-decoration: none;
+}
+
+.saved-list a:visited{
+  text-decoration: none;
+  color:inherit;
+}
+.saved-list a.active{
+  color:red;
+}
 .saved-list h3 {
   margin-right: 10px;
 }

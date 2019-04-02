@@ -14,7 +14,7 @@ export default class SavedList extends Component {
       <div className="saved-list">
         <h3>Saved Movies:</h3>
         {this.props.list.map(movie => (
-          <NavLink to={`/movies/${movie.id}`} component={Movie}>
+          <NavLink exact to={`/movies/${movie.id}`} component={Movie}>
             <span className="saved-movie">{movie.title}</span>
           </NavLink>
         ))}
