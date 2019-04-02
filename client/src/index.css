@@ -34,10 +34,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
-.saved-list a{
+.saved-list a {
   text-decoration: none;
+  box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),0 8px 16px -8px rgba(0,0,0,.3),0 -6px 16px -6px rgba(0,0,0,.025);
+  padding:10px;
+  border-radius: 5px;
+ 
+}
+
+.saved-list a:hover{
+  transform: translateY(-1px);
+  background:lightgray;
 }
 
 .saved-list a:visited{
@@ -45,11 +55,14 @@ body {
   color:inherit;
 }
 .saved-list a.active{
-  color:red;
+  background:lightgreen;
+  padding:10px;
+  border-radius: 5px;
 }
 .saved-list h3 {
   margin-right: 10px;
 }
+
 
 .saved-movie {
   margin: 0 10px;
@@ -72,6 +85,15 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
+
+.remove-button {
+  position: absolute;
+  top: 50px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
 .save-button:hover {
   background-color: green;
   color: white;
@@ -79,5 +101,14 @@ body {
 
 .home-button {
   padding: 5px 10px;
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
+}
+
+.homebtn{
+  background:#b781b7;
+}
+
+.saved-list a .homebtn:hover{
+  transform: translateY(-1px);
+  background:plum;
 }

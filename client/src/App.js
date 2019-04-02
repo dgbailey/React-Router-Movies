@@ -19,6 +19,12 @@ export default class App extends Component {
     this.setState({ savedList });
   };
 
+  removeSaved = movie => {
+    const newsavedList = this.state.savedList.filter(currentMovie => currentMovie !== movie)
+    
+    this.setState({ savedList:newsavedList })}
+  ;
+
   render() {
     return (
       <div>
