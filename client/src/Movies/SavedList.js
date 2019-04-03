@@ -10,6 +10,7 @@ export default class SavedList extends Component {
   }
 
   render() {
+    console.log('saved list rendering')
     return (
       <div className="saved-list">
         <h3>Saved Movies:</h3>
