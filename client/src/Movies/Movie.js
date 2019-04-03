@@ -42,7 +42,7 @@ export default class Movie extends Component {
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
-    console.log(this.props);
+    
 
     const { title, director, metascore, stars } = this.state.movie;
     return (
@@ -64,7 +64,7 @@ export default class Movie extends Component {
           ))}
         </div>
         <div className="save-button" onClick={this.saveMovie}>Save</div>
-        <div className="remove-button" onClick={this.removeSaved}>Remove</div>
+        <div className="remove-button" onClick={()=>{this.props.removeSaved(this.state.movie.id)}}>Remove</div>
       </div>
     );
   }

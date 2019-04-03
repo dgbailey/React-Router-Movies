@@ -20,7 +20,7 @@ export default class App extends Component {
   };
 
   removeSaved = movie => {
-    const newsavedList = this.state.savedList.filter(currentMovie => currentMovie !== movie)
+    const newsavedList = this.state.savedList.filter(currentMovie => currentMovie.id !== movie)
     
     this.setState({ savedList:newsavedList })}
   ;
@@ -28,9 +28,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <SavedList  list={this.state.savedList} />
+        <SavedList list={this.state.savedList} />
         <Route exact path='/' component={MovieList} ></Route>
-        <Route exact path='/movies/:id' render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>}></Route>
+        <Route exact path='/movies/:id' render={(props) => <Movie {...props} removeSaved={this.removeSaved} addToSavedList={this.addToSavedList}/>}></Route>
       </div>
     );
   }
