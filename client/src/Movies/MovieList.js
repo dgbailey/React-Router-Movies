@@ -13,6 +13,7 @@ export default class MovieList extends Component {
   }
 
   componentDidMount() {
+    console.log('movie list mount')
     axios
       .get('http://localhost:5000/api/movies')
       .then(response => {
@@ -24,6 +25,7 @@ export default class MovieList extends Component {
   }
 
   render() {
+    console.log('movie list rendering')
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (

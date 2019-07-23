@@ -12,8 +12,13 @@ export default class Movie extends Component {
 
   componentDidMount() {
     // change this line to grab the id passed on the URL
+    //component did mount is not going to run again in this architecture because 
+    //constructor also only runs once during mounting, hence why movie doesn't switch to null on re render
+    //the movie component does not unmount between NavLink clicks in SaveList and mount only runs on first time
+    //therefore you need a function to set state again with id
     const id = this.props.match.params.id;
     this.fetchMovie(id);
+    console.log('movie did mount');
   }
 
   fetchMovie = id => {
@@ -27,9 +32,10 @@ export default class Movie extends Component {
       });
   };
   // Uncomment this code when you're ready for the stretch problems
-  componentWillReceiveProps(newProps){
+  componentWillUpdate(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchMovie(newProps.match.params.id);
+      console.log('movie component will update function firing');
     }
   }
 
@@ -39,10 +45,11 @@ export default class Movie extends Component {
   }
 
   render() {
+    console.log('movie rendering')
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
-    console.log(this.props);
+    
 
     const { title, director, metascore, stars } = this.state.movie;
     return (
@@ -64,6 +71,7 @@ export default class Movie extends Component {
           ))}
         </div>
         <div className="save-button" onClick={this.saveMovie}>Save</div>
+        <div className="remove-button" onClick={()=>{this.props.removeSaved(this.state.movie.id)}}>Remove</div>
       </div>
     );
   }
